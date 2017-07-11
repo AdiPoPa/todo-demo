@@ -1,0 +1,30 @@
+<div class="row">
+  <form materialize class="col s12" (ngSubmit)="onSubmit(todoForm)" #todoForm="ngForm">
+    <h5 class="task-form-title">Submit a task</h5>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="title" type="text" name="title" ngModel required>
+        <label for="title">Task title</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="body" class="materialize-textarea" name="body" ngModel required></textarea>
+        <label for="body">Task body</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <select id="category" materialize="material_select" name="category" ngModel required>
+          <option value="" disabled selected>Choose a category</option>
+          <option *ngFor="let category of categoryOptions" [attr.data-icon]="category.icon" class="left circle"
+                  [value]="category.value">{{ category.name }}
+          </option>
+        </select>
+        <label for="category">Category</label>
+      </div>
+    </div>
+    <button class="waves-effect waves-teal btn" type="submit" style="margin-top: 10px;" [disabled]="!todoForm.valid">
+      Submit<i class="material-icons right">send</i></button>
+  </form>
+</div>

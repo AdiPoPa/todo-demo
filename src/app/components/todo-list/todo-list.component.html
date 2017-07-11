@@ -1,0 +1,15 @@
+<h4 class="todo-list-title">Here are all your tasks: </h4>
+<form materialize (ngSubmit)="onFilter(filterForm)" #filterForm="ngForm">
+  <div class="row">
+    <div class="input-field col s9">
+      <input id="filter" type="text" name="filter" ngModel required>
+      <label for="filter">Category to filter by</label>
+    </div>
+    <div class="col s3">
+      <button class="waves-effect waves-teal btn col s12" type="submit">Filter</button>
+    </div>
+  </div>
+</form>
+<ul class="collection" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <app-todo-item *ngFor="let todo of todoList; let i = index" [todo]="todo" [todoIndex]="i"></app-todo-item>
+</ul>

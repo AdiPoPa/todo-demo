@@ -1,0 +1,9 @@
+<li class="collection-item avatar">
+  <img [src]="todo.thumbnail" alt="" class="circle">
+  <span class="title">{{ todo.title }}</span>
+  <p>Category: {{ todo.category }} <br>
+    {{ todo.body }}
+  </p>
+  <a class="secondary-content" style="cursor: pointer;" (click)="onDelete()"><i class="material-icons">close</i></a>
+</li>
+<span class="divider"></span>
